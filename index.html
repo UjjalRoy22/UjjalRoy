@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Portfolio</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' href="style.css"> 
+    <script src="https://kit.fontawesome.com/3f6c5704ac.js" crossorigin="anonymous"></script>
+    <style>
+        /* Add your CSS styles here */
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <img src="images/logo 1.png" class="logo">
+                <ul> 
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <!-- <li><a href="#">Services</a></li> -->
+                    <!-- <li><a href="#">Portfolio</a></li> -->
+                    <li><a href="#contact">Contact</a></li>            
+                </ul>
+            </nav>
+            <div class="header-text">
+                <h1>Hi, I'm <span>Ujjal</span>Roy <br> from Kokrajhar</h1>
+            </div>
+        </div>
+    </div>
+
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="images/Ujjal.jpg">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title"> About Me</h1>
+                    <p>I am a B.Tech graduate in Computer Science & Engineering from CIT Kokrajhar. Currently pursuing M.Tech in CSE from CIT Kokrajhar. Skilled in C, C++, Java, Python, HTML, CSS, MySQL. My interested domain includes Blockchain, AI, ML, IoT.
+                     
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>UI/UX</span><br>Designing Web/App interfaces</li>
+                            <li><span>Web Development</span><br>Web App Development</li>
+                            
+                        </ul>
+                    </div>
+
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>2022 - Current</span><br>Teaching Assistant at NIELIT Guwahati</li>
+                            <li><span>2021 - 2022</span><br>Internship at Dignique Techlabs</li>
+                            <li><span>2019 - 2022</span><br>Co-Founder at EncryptoCyberspace</li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2022 - 2024</span><br>M.Tech in CSE from CIT Kokrajhar</li>
+                            <li><span>2019 - 2022</span><br>B.Tech in CSE from CIT Kokrajhar</li>
+                            <li><span>2016 - 2019</span><br>Diploma in CSE from CIT Kokrajhar</li>
+                        </ul>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+  
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="sub-title">Contact Me</h1>
+                    <p><i class="fa-solid fa-paper-plane"></i>erujjalroy@gmail.com</p>
+                    <p><i class="fa-sharp fa-solid fa-square-phone"></i>9678486502</p>
+                    <div class="social-icons">
+                        <a href="https://facebook.com"><i class="fa-brands fa-facebook"></i></a>
+                        <a href=""><i class="fa-brands fa-twitter-square"></i></a>
+                        <a href=""><i class="fa-brands fa-instagram"></i></a>
+                        <a href=""><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                    <a href="images/CV.pdf" download class="btn btn2">Download CV</a>
+                </div>
+                <div class="contact-right">
+                    <form>
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                        <button type="submit" class="btn btn2">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright Ujjal Roy <i class="fa-solid fa-heart"></i></p>
+        </div>
+    </div>
+
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+
+        function opentab(tabname) {
+            for (tablink of tablinks) {
+                tablink.classList.remove("active-link");
+            }
+            for (tabcontent of tabcontents) {
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get all the navigation links
+            var navLinks = document.querySelectorAll('nav ul li a');
+
+            // Loop through each link and add click event listener
+            navLinks.forEach(function(link) {
+                link.addEventListener('click', function(event) {
+                    // Prevent default behavior of the link
+                    event.preventDefault();
+
+                    // Get the target section id from the link's href attribute
+                    var targetSectionId = link.getAttribute('href').substring(1);
+
+                    // Get the target section element
+                    var targetSection = document.getElementById(targetSectionId);
+
+                    // Scroll to the target section smoothly
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
